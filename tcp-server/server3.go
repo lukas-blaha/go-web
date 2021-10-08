@@ -29,8 +29,7 @@ func handle(conn net.Conn) {
     for scanner.Scan() {
         ln := scanner.Text()
         fmt.Println(ln)
+        fmt.Fprintf(conn, "I heard you say: %s\n", ln)
     }
     defer conn.Close()
-
-
 }
